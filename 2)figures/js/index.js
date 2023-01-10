@@ -1,47 +1,73 @@
 var canv = document.getElementById('canvas'),
-ctx = canv.getContext('2d');
+ctx = canv.getContext('2d'),
+tengl = document.getElementById('teng'),
+tctx = tengl.getContext('2d');
 
 canv.width = window.innerWidth;
-canv.height = window.innerHeight;
+//canv.height = window.innerHeight;
+
+tengl.width = window.innerWidth;
+tengl.height = window.innerHeight;
 
 
-ctx.fillStyle = 'magenta';
-ctx.fillRect(50, 50, 300, 200);
+// ctx.fillStyle = 'magenta';
+// ctx.rotate(359 * Math.PI/180)
 
-// ctx.arc(canv.width / 2, canv.height / 2, 100, 0, Math.PI*2);
+// ctx.scale(2,2);
+// ctx.arc(canv.width / 2, canv.height / 2, 20, 0, Math.PI*2);
 // ctx.fill();
+// var flag = true;
+
+var x = 50;
+ctx.fillRect(x, 0, 60, 30);
+
+function rectMuve(){
+  ctx.fillStyle = 'white';
+  ctx.fillRect(0, 0, canv.width, canv.height);
+
+  ctx.fillStyle = 'black';
+  ctx.fillRect(x++, 0, 60, 30);
+}
+
+function rectClick(){
+ setInterval(function(){
+  rectMuve();
+ }, 10);
+}
 
 // ctx.rotate(10 * Math.PI/180)
-// ctx.beginPath();
-// ctx.moveTo(canv.width / 2, 400);
-// ctx.lineTo((canv.width / 2)-100, 500);
-// ctx.lineTo((canv.width / 2)+100, 500);
-// ctx.closePath();
-// ctx.stroke();
+tctx.beginPath();
+tctx.moveTo(canv.width / 2, 100);
+tctx.lineTo((canv.width / 2)-100, 200);
+tctx.lineTo((canv.width / 2)+100, 200);
+tctx.closePath();
+tctx.stroke();
 
 //rect animation
-function makeEaseOut(timing) {
-    return function(timeFraction) {
-      return 1 - timing(1 - timeFraction);
+var rect = document.getElementById('rotate-rect');
+  var a = 1, b = 0, c = 0, d = 1, tx = 10, ty = 10, angle = 0, currentAngle;
+
+  function getAngleToRAD(){
+    if(angle === 360){
+      angle = 0;
     }
+
+    return angle++ * Math.PI / 180;
+  }
+  function update(){
+    currentAngle = getAngleToRAD();
+
+    rect.style.transform = 'matrix(' + Math.cos(currentAngle) + ',' + Math.sin(currentAngle) + ',' + -Math.sin(currentAngle) + ',' + Math.cos(currentAngle) + ',' + tx + ',' + tx + ')'
+    window.requestAnimationFrame(update);
+  }
+  // update();
+
+  var pul = document.getElementById('pulse');
+  function addPulse() {
+    pul.classList.add('pulse');
   }
 
-  function bounce(timeFraction) {
-    for (let a = 0, b = 1; 1; a += b, b /= 2) {
-      if (timeFraction >= (7 - 4 * a) / 11) {
-        return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2)
-      }
-    }
-  }
-
-  let bounceEaseOut = makeEaseOut(bounce);
-
-  brick.onclick = function() {
-    animate({
-      duration: 3000,
-      timing: bounceEaseOut,
-      draw: function(progress) {
-        brick.style.left = progress * 500 + 'px';
-      }
-    });
-  };
+var rotateCube = document.getElementById('cube');
+function addRotateCube() {
+  rotateCube.classList.add('rotatey-animation');
+}
