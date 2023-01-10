@@ -1,0 +1,9 @@
+video {
+    display: inline-block;
+    object-fit: contain;
+    overflow: clip;
+}
+#video1{
+    width: 640px;
+    height: 360px;
+}
