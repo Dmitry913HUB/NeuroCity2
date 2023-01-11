@@ -1,31 +1,22 @@
-blockHide = document.getElementById('hide');
-var flag = true;
-
-function hiWi(){
-    if(flag){
-        flag = false;
-        blockHide.style.display = 'block';
-    }else{
-        flag = true;
-        blockHide.style.display = 'none';
-    }
+function toggleElements() {
+    const elements = document.querySelectorAll(".hidden");
+    elements.forEach(element => {
+        if(element.style.display === 'block'){
+            element.style.display = 'none';
+        }
+        else{
+            element.style.display = 'block';
+        }
+    });
 }
-
-function debounce(f, ms) {
-
-    let isCooldown = false;
-  
+function debounce(fn, delay) {
+    let timer;
     return function() {
-      if (isCooldown) return;
-  
-      f.apply(this, arguments);
-  
-      isCooldown = true;
-  
-      setTimeout(() => isCooldown = false, ms);
-    };  
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn();
+        }, delay);
+    };
 }
-
-function clickHiWi(){
-    debounce(hiWi(), 1000)
-}
+const button = document.getElementById("toggle-elements-button");
+button.addEventListener("click", debounce(toggleElements, 1000));

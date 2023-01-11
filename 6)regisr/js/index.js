@@ -28,7 +28,7 @@ function validatePassword(password) {
 }
 
 function validateName(name) {
-    let re = /^[a-zA-Zа-яА-ЯёЁ][a-zA-Z-а-яА-ЯёЁ]{3,30}$/;
+    let re = /^[a-zA-Zа-яА-ЯёЁ]{3,30}$/;
     return re.test(String(name));
 }
 

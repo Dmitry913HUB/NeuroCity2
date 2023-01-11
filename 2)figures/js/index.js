@@ -43,7 +43,6 @@ tctx.lineTo((canv.width / 2)+100, 200);
 tctx.closePath();
 tctx.stroke();
 
-//rect animation
 var rect = document.getElementById('rotate-rect');
   var a = 1, b = 0, c = 0, d = 1, tx = 10, ty = 10, angle = 0, currentAngle;
 
