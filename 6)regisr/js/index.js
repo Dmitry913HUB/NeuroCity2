@@ -8,7 +8,7 @@ let form = document.querySelector('.js-form'),
 
 
 function validateEmail(email) {
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let re = /^(.+)\@(.+)\.(.+)$/;
     return re.test(String(email).toLowerCase());
 }
 
@@ -18,7 +18,7 @@ function validateCountry(country) {
 }
 
 function validatePhone(phone) {
-    let re = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,15}(\s*)?$/;
+    let re = /^(\+?)\d{10,15}$/;
     return re.test(String(phone));
 }
 
