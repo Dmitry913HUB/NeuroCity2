@@ -1,5 +1,5 @@
 # NeuroCity2
-# Slider
+# slider
 Implementing a simple slider with and without a class
 # figures
 Basic geometric shapes (circle, triangle, square, rectangle) with different animations (Ripple, displacement, rotation, 3D transformations or others at your discretion) launch by click. partial implementation on canvas.
