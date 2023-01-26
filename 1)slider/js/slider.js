@@ -1,3 +1,4 @@
+"use strict"
 class Slider {
     constructor(slider, autoplay = true) {
         // элемент div.carousel

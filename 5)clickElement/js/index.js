@@ -1,3 +1,4 @@
+"use strict"
 function toggleElements() {
     const elements = document.querySelectorAll(".hidden");
     elements.forEach(element => {

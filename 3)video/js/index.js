@@ -1,5 +1,6 @@
+"use strict"
 (function() {
-    var  video = document.getElementById("video1"),
+    let  video = document.getElementById("video1"),
       current = document.getElementById("video1-current");
    
 
@@ -16,7 +17,7 @@
     }, false);
     
     function formatTime(time) {
-      var 
+      let 
         minutes = Math.floor(time / 60) % 60,
         seconds = Math.floor(time % 60),
         milisecond = time.toString().match(/\.(\d{3})/)?.[1];

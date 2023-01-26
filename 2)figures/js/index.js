@@ -1,4 +1,5 @@
-var canv = document.getElementById('canvas'),
+"use strict"
+let canv = document.getElementById('canvas'),
 ctx = canv.getContext('2d'),
 tengl = document.getElementById('teng'),
 tctx = tengl.getContext('2d');
@@ -16,9 +17,9 @@ tengl.height = window.innerHeight;
 // ctx.scale(2,2);
 // ctx.arc(canv.width / 2, canv.height / 2, 20, 0, Math.PI*2);
 // ctx.fill();
-// var flag = true;
+// let flag = true;
 
-var x = 50;
+let x = 50;
 ctx.fillRect(x, 0, 60, 30);
 
 function rectMuve(){
@@ -43,8 +44,8 @@ tctx.lineTo((canv.width / 2)+100, 200);
 tctx.closePath();
 tctx.stroke();
 
-var rect = document.getElementById('rotate-rect');
-  var a = 1, b = 0, c = 0, d = 1, tx = 10, ty = 10, angle = 0, currentAngle;
+let rect = document.getElementById('rotate-rect');
+  let a = 1, b = 0, c = 0, d = 1, tx = 10, ty = 10, angle = 0, currentAngle;
 
   function getAngleToRAD(){
     if(angle === 360){
@@ -61,12 +62,12 @@ var rect = document.getElementById('rotate-rect');
   }
   // update();
 
-  var pul = document.getElementById('pulse');
+  let pul = document.getElementById('pulse');
   function addPulse() {
     pul.classList.add('pulse');
   }
 
-var rotateCube = document.getElementById('cube');
+let rotateCube = document.getElementById('cube');
 function addRotateCube() {
   rotateCube.classList.add('rotatey-animation');
 }

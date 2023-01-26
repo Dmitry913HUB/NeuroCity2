@@ -1,3 +1,4 @@
+"use strict"
 let fs = require('fs');
 fs.readFile('input.txt', 'utf8', function(error, fileContent){
    if(error) throw error;
