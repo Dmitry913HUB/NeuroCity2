@@ -1,4 +1,4 @@
-#NeuroCity2
+﻿#NeuroCity2
 #Slider
 Implementing a simple slider with and without a class
 #figures
